@@ -1,0 +1,17 @@
+clc
+f = @(x) 2*x - x.^2;
+a=0;
+b=3;
+n=6;
+h=b-a/n;
+X= linspace(a,b,n+1);
+y = f(X);
+sum = y(1)+y(n+1);
+for i = 2:2:n
+    sum = sum + 4*y(i);
+end
+for i = 3:2:n-1 
+    sum = sum + 2*y(i);
+end
+I = h*sum/3;
+fprintf("%f",sum);
